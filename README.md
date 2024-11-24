@@ -2,30 +2,26 @@
 백준 문제 풀이 기록용 레포지토리입니다. This repository is for Baekjoon Online Judge
 
 ## 데이터 입력받기
+> 1000번을 푸는 예제 코드입니다.
 ### node.js(javascript)
-**1. fs모듈(비권장)**
+**1. fs모듈**
 ```js
-const input = require('fs').readFileSync('/dev/stdin').toString().split(' ');
+const fs = require('fs');
+const [A, B] = fs.readFileSync(0, 'utf-8').trim().split(' ').map(Number);
 
-const A = parseInt(input[0]);
-const B = parseInt(input[1]);
+console.log(A + B);
 ```
 
-**2. readLine(권장)**
+**2. readLine**
 ```js
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout,
 });
 
-let input = [];
-
 readline.on('line', function(line) {
-    input = line.split(' ').map(el => parseInt(el));
-}).on('close', function(){
-	/*
-		솔루션 작성
-	*/
-    process.exit();
+    const [A, B] = line.split(' ').map(Number);
+    console.log(A + B);
+    readline.close();
 });
 ```
